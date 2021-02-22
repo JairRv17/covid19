@@ -15,8 +15,8 @@ include_once('conexion.php');
     <link href="style/styles.css" rel="stylesheet">-->
 
     
-    <!-- Custom styles for this template -->
-    <link href="styles/styles.css" rel="stylesheet">
+    <!-- Custom styles for this template 
+    <link href="styles/styles.css" rel="stylesheet">-->
 
     <title><?php echo $title; ?></title>
 
