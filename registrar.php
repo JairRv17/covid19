@@ -16,7 +16,7 @@ if (isset($_POST["btnGrabar"])) {
         $pass = $_POST["txtPassword"];
         $script = "INSERT INTO `credenciales` (`Usuario`, `Contraseña`) VALUES ('" . $nombre . "', '" . $pass . "')";
 
-        echo "Hola";
+        //echo "Hola";
 
         if ($conn->query($script) === TRUE) {
             echo '<script>
@@ -31,9 +31,12 @@ if (isset($_POST["btnGrabar"])) {
         $conn->close();
     }
 }
-    /*if(isset($_GET['registrar'])){
+    if(isset($_GET['id_Cred'])){
+        $id_cred = $_GET['id_Cred'];
+        //echo $id_cred;
+        //session_start();
 ?>
-        <form method="POST" action="registrar.php">
+        <form method="POST" action="index.php">
             <div class="mb-3">
                 <label for="txtPrimerNombre" class="form-label">Primer Nombre</label>
                 <input type="text" class="form-control" id="txtPrimerNombre" name="txtPrimerNombre">
@@ -80,27 +83,29 @@ if (isset($_POST["btnGrabar"])) {
                 <label for="txtSangre" class="form-label">Tipo de Sangre</label>
                 <input type="text" class="form-control" id="txtSangre" name="txtSangre">
             </div>
-            <input type="text" class="form-control" id="txtIdCred" name="txtIdCred" value="<?php $_SESSION['id'] ?>">
+            <!--<label for="txtIdCred" class="form-label">Id Credencial</label>-->
+            <input type="hidden" class="form-control" id="txtIdCred" name="txtIdCred" value="<?php echo $id_cred; ?>">
+            
             <button type="submit" name="btnGrabar" class="btn btn-success">Grabar</button>
             <a href="index.php" class="btn btn-secondary">Cancelar</a>
         </form><?php
             }
         
-                */?>
+                ?>
 
-<?php if (!isset($_GET['paciente'])) { ?>
+<?php if ((!isset($_GET['paciente'])) && (!isset($_GET['id_Cred']))) { ?>
     <form method="POST" action="registrar.php?paciente=I">
         <div class="mb-3">
             <label for="txtusuario" class="form-label">Crear Nombre de Usuario</label>
-            <input type="text" class="form-control" id="txtusuario" name="txtUsuario">
+            <input type="text" class="form-control" id="txtUsuario" name="txtUsuario">
         </div>
         <div class="mb-3">
             <label for="txtcontra" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="txtcontra" name="txtPassword">
+            <input type="password" class="form-control" id="txtPassword" name="txtPassword">
         </div>
         <div class="botones">
             <button type="submit" name="btnGrabar" class="btn btn-success">Siguiente</button>
-            <a href="index.php" class="btn btn-secondary">Cancelar</a>
+            <a href="login.php" class="btn btn-secondary">Cancelar</a>
         </div>
     </form>
 <?php
