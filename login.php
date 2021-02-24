@@ -1,23 +1,11 @@
 <?php
 include_once('conexion.php');
 
-//session_start();
-
 if (isset($_POST["txtUsuario"]) && isset($_POST["txtPassword"])) {
     $nombre = $_POST["txtUsuario"];
     $pass = $_POST["txtPassword"];
     echo "isset txtUsuario  && isset txtPassword ";
-    //session_start();
-    //$_SESSION['user'] = $nombre;
 }
-/*if(isset($_GET['modo'])){
-    $modo = $_GET['modo'];
-    if($modo == "N"){
-        session_start();
-        $_SESSION['user'] = $nombre;
-        echo "Prueba ".$_SESSION['user'];
-    }
-}*/
 
 if (isset($_POST['btnLogin']) || isset($_GET['nombre']) ) {
     //echo "btn Login || modo";

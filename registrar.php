@@ -7,6 +7,25 @@ include_once('header.php');
 echo "<h1>" . $title . "</h1>";
 if (isset($_POST["btnGrabar"])) {
     $paciente = $_GET["paciente"] == "" ? "F" : $_GET["paciente"];
+    if($paciente == "F"){
+        //echo $_POST["rbSexo"];
+        //echo "<br>".$_POST['txtIdCred'];
+        
+        $script = "INSERT INTO `paciente` (`PrimerNombre`, `SegundoNombre`, `PrimerApellido`, `SegundoApellido`, `FechaNacimiento`, `Sexo`, `Estatura`, `Cedula`, `TipoSangre`, `id_credencial`) ";
+        //$script .= " VALUES ('Kevin', 'Fabricio', 'Vega', 'Sacaira', '2000-02-10', 'M', '1.73', '0926454778', 'O+', '25');";
+        $script .= " VALUES ('" . $_POST["txtPrimerNombre"] . "', '" . $_POST["txtSegundoNombre"] . "', '" . $_POST["txtPrimerApellido"] . "', '" . $_POST["txtSegundoApellido"] . "', '" . $_POST["txtFechaNacimiento"] . "', '".$_POST["rbSexo"]."', '" . $_POST["txtEstatura"] . "', '" . $_POST["txtCedula"] . "','".$_POST["txtSangre"] . "', '" . $_POST["txtIdCred"] . "')";
+        echo $script;
+        if ($conn->query($script) === TRUE) {
+            echo '<script>
+            alert("Se agrego un nuevo registro exitosamente");
+            window.location= "index.php"
+            </script>';
+        } else {
+            echo "Error al conectarse a la base de datos" . mysqli_connect_error();
+
+        }
+        $conn->close();
+    }
     if ($conn->connect_error) {
         die("Error de conexión: " . $conn->connect_error);
     }
@@ -36,7 +55,7 @@ if (isset($_POST["btnGrabar"])) {
         //echo $id_cred;
         //session_start();
 ?>
-        <form method="POST" action="index.php">
+        <form method="POST" action="registrar.php?paciente=">
             <div class="mb-3">
                 <label for="txtPrimerNombre" class="form-label">Primer Nombre</label>
                 <input type="text" class="form-control" id="txtPrimerNombre" name="txtPrimerNombre">
@@ -66,17 +85,20 @@ if (isset($_POST["btnGrabar"])) {
                 <input type="text" class="form-control" id="txtCedula" name="txtCedula" minlength="10" maxlength="10">
             </div>
             <div class="mb-3">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" value="M" name="rbSexo" id="rbSexoM">
-                    <label class="form-check-label" for="rbSexoM">
-                        Masculino
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" value="F" name="rbSexo" id="rbSexoF">
-                    <label class="form-check-label" for="rbSexoF">
-                        Femenino
-                    </label>
+                <label for="rbSexo" class="form-label">Sexo</label>
+                <div class="container">    
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="M" name="rbSexo" id="rbSexoM">
+                        <label class="form-check-label" for="rbSexoM">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="F" name="rbSexo" id="rbSexoF">
+                        <label class="form-check-label" for="rbSexoF">
+                            Femenino
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="mb-3">
