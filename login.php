@@ -3,8 +3,8 @@ include_once('conexion.php');
 
 if (isset($_POST["txtUsuario"]) && isset($_POST["txtPassword"])) {
     $nombre = $_POST["txtUsuario"];
-    $pass = $_POST["txtPassword"];
-    echo "isset txtUsuario  && isset txtPassword ";
+    $pass =  $_POST["txtPassword"];
+    //echo "isset txtUsuario  && isset txtPassword ";
 }
 
 if (isset($_POST['btnLogin']) || isset($_GET['nombre']) ) {
@@ -27,13 +27,14 @@ if (isset($_POST['btnLogin']) || isset($_GET['nombre']) ) {
         session_start();
         $_SESSION['user'] = $nombre;
         $id_cred = $valores['Id'];
+        $_SESSION['id_cred'] = $id_cred;
         //echo $_SESSION['id_cred'];
         if(isset($_GET['nombre'])){
             echo "<script>alert('Hello! I am an alert box!!');</script>";
             //echo "<br>Dentro de header";
             header("Location: registrar.php?id_Cred=$id_cred");
         }else{
-            header("Location: index.php");
+            header("Location: template2/index.php");
         }
     } else if ($nr == 0) {
         //header("Location: login.html");
