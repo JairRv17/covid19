@@ -16,6 +16,10 @@ if (isset($_POST["btnGrabar"])) {
         $script .= " VALUES ('" . $_POST["txtPrimerNombre"] . "', '" . $_POST["txtSegundoNombre"] . "', '" . $_POST["txtPrimerApellido"] . "', '" . $_POST["txtSegundoApellido"] . "', '" . $_POST["txtFechaNacimiento"] . "', '".$_POST["rbSexo"]."', '" . $_POST["txtEstatura"] . "', '" . $_POST["txtCedula"] . "','".$_POST["txtSangre"] . "', '" . $_POST["txtIdCred"] . "')";
         echo $script;
         if ($conn->query($script) === TRUE) {
+            session_start();
+            $query = $conn->query("SELECT paciente.Id FROM `paciente` INNER JOIN `credenciales` ON  paciente.id_credencial = " . $_SESSION['id_cred'] . ";");
+            $valores = mysqli_fetch_array($query);
+            $_SESSION['id'] = $valores[0];
             echo '<script>
             alert("Se agrego un nuevo registro exitosamente");
             window.location= "index.php"
