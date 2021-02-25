@@ -37,7 +37,7 @@ if (isset($_POST['btnLogin']) || isset($_GET['nombre']) ) {
             $query = $conn->query("SELECT paciente.Id FROM `paciente` INNER JOIN `credenciales` ON  paciente.id_credencial = " . $_SESSION['id_cred'] . ";");
             $valores = mysqli_fetch_array($query);
             $_SESSION['id'] = $valores[0];
-            header("Location: template2/index.php");
+            header("Location: template/index.php");
         }
     } else if ($nr == 0) {
         //header("Location: login.html");

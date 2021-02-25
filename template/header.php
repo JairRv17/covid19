@@ -40,9 +40,9 @@ if(!isset($_SESSION['user'])){
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <i class="fas fa-ambulance"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">IESS</div>
+                <div class="sidebar-brand-text mx-3">Hospital En Linea</div>
             </a>
 
             <!-- Divider -->
@@ -148,14 +148,14 @@ if(!isset($_SESSION['user'])){
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="index.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Registro de actividad
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="mantenimiento.php">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Cerrar Sesión
+                                    Cerrar Session 
                                 </a>
                             </div>
                         </li>

@@ -3,7 +3,7 @@ include_once('header.php');
 ?>
 <div class="container">
     <div class="col-12">
-        <h1>Informacion</h1>
+        <h1>Información</h1>
     </div>
     <div class="col-12">
         <table class="table table-hover" id="table_id">
