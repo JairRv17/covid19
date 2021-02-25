@@ -85,10 +85,11 @@ if(!isset($_SESSION['user'])){
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="manteniento.php">Sintomas</a>
-                        <a class="collapse-item" href="utilities-border.html">Examenes</a>
-                        <a class="collapse-item" href="utilities-animation.html">Medicinas</a>
-                        <a class="collapse-item" href="utilities-other.html">Novedades</a>
+                        <a class="collapse-item" href="mantenimiento.php?modo=Sintomas">Sintomas</a>
+                        <a class="collapse-item" href="mantenimiento.php?modo=Examenes">Examenes</a>
+                        <a class="collapse-item" href="mantenimiento.php?modo=Medicinas">Medicinas</a>
+                        <a class="collapse-item" href="mantenimiento.php?modo=Novedades">Novedades</a>
+                        <a class="collapse-item" href="mantenimiento.php?modo=Nuevo">Agregar</a>
                     </div>
                 </div>
             </li>
@@ -153,9 +154,9 @@ if(!isset($_SESSION['user'])){
                                     Registro de actividad
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="mantenimiento.php">
+                                <a class="dropdown-item" href="mantenimiento.php?modo="<?php $modo =""; echo $modo ?>> 
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Cerrar Session 
+                                    Cerrar Sesión
                                 </a>
                             </div>
                         </li>
