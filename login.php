@@ -30,10 +30,13 @@ if (isset($_POST['btnLogin']) || isset($_GET['nombre']) ) {
         $_SESSION['id_cred'] = $id_cred;
         //echo $_SESSION['id_cred'];
         if(isset($_GET['nombre'])){
-            echo "<script>alert('Hello! I am an alert box!!');</script>";
+            //echo "<script>alert('Hello! I am an alert box!!');</script>";
             //echo "<br>Dentro de header";
             header("Location: registrar.php?id_Cred=$id_cred");
         }else{
+            $query = $conn->query("SELECT paciente.Id FROM `paciente` INNER JOIN `credenciales` ON  paciente.id_credencial = " . $_SESSION['id_cred'] . ";");
+            $valores = mysqli_fetch_array($query);
+            $_SESSION['id'] = $valores[0];
             header("Location: template2/index.php");
         }
     } else if ($nr == 0) {
