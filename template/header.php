@@ -97,8 +97,8 @@ if(!isset($_SESSION['user'])){
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <!-- Divider 
+            <hr class="sidebar-divider d-none d-md-block">-->
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -118,7 +118,7 @@ if(!isset($_SESSION['user'])){
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.php">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Logo_UCSG.svg/1200px-Logo_UCSG.svg.png" alt="" width="180" height="65">
                     </a>
 
@@ -145,7 +145,7 @@ if(!isset($_SESSION['user'])){
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="Act_Date.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>
