@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <?php
-include_once('archivos/conexion.php');
+include_once('../conexion.php');
 session_start();
+if(!isset($_SESSION['user'])){
+    header("Location:../login.php");
+} 
 ?>
 <html lang="en">
 
@@ -82,7 +85,7 @@ session_start();
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Sintomas</a>
+                        <a class="collapse-item" href="manteniento.php">Sintomas</a>
                         <a class="collapse-item" href="utilities-border.html">Examenes</a>
                         <a class="collapse-item" href="utilities-animation.html">Medicinas</a>
                         <a class="collapse-item" href="utilities-other.html">Novedades</a>
