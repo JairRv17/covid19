@@ -65,8 +65,8 @@ if(!isset($_GET['nombre'])){
     <div class="login">
         <h1>Iniciar Sesion</h1>
         <form method="POST" action="login.php">
-            <input type="text" name="txtUsuario" placeholder="Nombre De Usuario" />
-            <input type="password" name="txtPassword" placeholder="Contraseña" />
+            <input type="text" name="txtUsuario" placeholder="Nombre De Usuario" required/>
+            <input type="password" name="txtPassword" placeholder="Contraseña" required/>
             <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-large">Entrar</button>
             <a class="btn btn-primary btn-block btn-large" href="registrar.php"> Registrar </a>
         </form>
